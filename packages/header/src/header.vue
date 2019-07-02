@@ -5,7 +5,7 @@
     <div class="mint-header-button is-left">
       <slot name="left"></slot>
     </div>
-    <h1 class="mint-header-title" v-text="title"></h1>
+    <h1 class="mint-header-title" v-text="title" @click="onTitleClick"></h1>
     <div class="mint-header-button is-right">
       <slot name="right"></slot>
     </div>
@@ -34,6 +34,11 @@ export default {
   props: {
     fixed: Boolean,
     title: String
+  },
+  methods: {
+    onTitleClick(e) {
+      this.$emit('on-title-click', e);
+    }
   }
 };
 </script>
